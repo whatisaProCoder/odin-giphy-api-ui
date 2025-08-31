@@ -1,7 +1,7 @@
 {
-  "name": "WebApp",
+  "name": "GIPHY_UI",
   "version": "0.0.1",
-  "description": "Electron Compatible Web App",
+  "description": "A GIF searcher app using GIPHY API.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
@@ -14,9 +14,6 @@
     "deploy:build-web": "npm run build",
     "deploy:commit": "git add dist -f && git commit -m \"Deployment commit\"",
     "deploy:upload": " git subtree push --prefix dist origin gh-pages && git checkout main",
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
     "prepare": "husky && husky install",
     "tailwind-cli:watch": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch"
   },
@@ -24,28 +21,14 @@
   "author": "Pritam Debnath",
   "license": "ISC",
   "dependencies": {
-    "browser-fs-access": "^0.38.0",
-    "date-fns": "^4.1.0",
-    "downloadjs": "^1.4.7",
-    "electron-squirrel-startup": "^1.0.1",
-    "pretty-print-json": "^3.0.5",
-    "smooth-scrollbar": "^8.8.4",
     "webpack": "^5.99.9",
     "webpack-cli": "^6.0.1"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^7.8.3",
-    "@electron-forge/maker-deb": "^7.8.3",
-    "@electron-forge/maker-rpm": "^7.8.3",
-    "@electron-forge/maker-squirrel": "^7.8.3",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.8.3",
-    "@electron-forge/plugin-fuses": "^7.8.3",
-    "@electron/fuses": "^1.8.0",
     "@eslint/js": "^9.33.0",
     "simple-git-hooks": "^2.13.1",
     "autoprefixer": "^10.4.21",
     "css-loader": "^7.1.2",
-    "electron": "^37.2.6",
     "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
