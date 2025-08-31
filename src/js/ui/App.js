@@ -61,4 +61,20 @@ function handleUserActions() {
   randomButton.addEventListener("click", () => {
     api.randomAPI();
   });
+
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === 'Enter') {
+      const text = searchbox.value;
+
+      if (text != "")
+        api.translateAPI(text);
+
+      searchButton.classList.add("bg-blue-700");
+
+      setTimeout(() => {
+        searchButton.classList.remove("bg-blue-700");
+      }, 500);
+    }
+  });
 }
