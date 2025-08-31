@@ -13,7 +13,7 @@ export default function App() {
   appContent.innerHTML = /* html */ `
     <div class="w-[400px] h-[400px] flex flex-col">
       <div class="flex flex-row">
-        <div class="flex flex-row bg-[#141414] h-[50px] flex-1 border-1 border-[#282828] rounded-xl"></div>
+        <div class="flex flex-row bg-[#141414] h-16 flex-1 border-1 border-[#282828] rounded-full"></div>
       </div>
     </div>
   `;
