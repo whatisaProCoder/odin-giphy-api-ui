@@ -1,5 +1,5 @@
 import "./css/output.css";
-import App from "./js/ui/app";
+import App from "./js/ui/App";
 
 App();
 

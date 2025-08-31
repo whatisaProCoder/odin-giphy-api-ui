@@ -1,7 +1,7 @@
 {
-  "name": "WebApp",
+  "name": "GIPHY_App",
   "version": "0.0.1",
-  "description": "Electron Compatible Web App",
+  "description": "A simple gif searcher, using the GIPHY API",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
