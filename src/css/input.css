@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter.ttf") format("truetype");
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  letter-spacing: -0.02em;
+}
+
+body {
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  font-family: "Inter", "Segoe UI";
+  background-color: #f8f8f8;
+  position: relative;
+}
+
+dialog {
+  position: relative;
+  z-index: 100;
+  animation: fade-out 0.3s ease-out;
+}
+
+dialog:open {
+  animation: fade-in 0.3s ease-out;
+}
+
+dialog:open::backdrop {
+  animation: backdrop-fade-in 0.2s ease-out forwards;
+}
+
+/* Animation keyframes */
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes backdrop-fade-in {
+  0% {
+    background-color: rgb(0 0 0 / 0%);
+  }
+
+  100% {
+    background-color: rgb(0 0 0 / 5%);
+  }
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Custom dropdown arrow */
+  background-image: url("../icons/drop_down_arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  background-size: 20px 20px;
+  /* <-- make arrow bigger */
+}
+
+textarea {
+  resize: vertical;
+  font-family: "Inter";
+}
+
+.title-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  background: #eeeeee;
+  border-bottom: 1px solid #dadada;
+  display: flex;
+  align-items: center;
+}
+
+.title-bar > .draggable {
+  flex: 1;
+  height: 100%;
+  app-region: drag;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title-bar > .icon-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-left: 0.375rem;
+  margin-right: 0.375rem;
+}
+
+.title-bar > .icon-group > img {
+  height: 1.375rem;
+}
+
+.title-bar > .draggable > img {
+  height: 1.375rem;
+  margin-left: 0.25rem;
+}
+
+.popups-container {
+  position: relative;
+  z-index: 200;
+}
+
+.popup-dialog-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #dcdcdc;
+  border-radius: 0.25rem;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  filter: drop-shadow(0px 46px 130px rgba(0, 0, 0, 35%));
+}
+
+.popup-dialog-box > .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-dialog-box > .container > .dialog-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.popup-dialog-box > .container > .text {
+  font-weight: 500;
+}
+
+.popup-dialog-box > .container > .button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 0.875rem;
+  margin-top: 1.5rem;
+  justify-content: flex-end;
+}
+
+.popup-dialog-box > .container > .button-group > .no-button {
+  border: 1px solid #e1e1e1;
+  padding: 0.5rem 2rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  background-color: #4076ff;
+  color: #f8f8f8;
+  user-select: none;
+  margin-right: 1px;
+}
+
+.popup-dialog-box > .container > .button-group > .no-button:active {
+  background-color: #2361ff;
+}
+
+.popup-dialog-box > .container > .button-group > .yes-button {
+  border: 1px solid #e1e1e1;
+  padding: 0.5rem 2rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  background-color: #ff3535;
+  color: #f8f8f8;
+  user-select: none;
+  margin-right: 1px;
+}
+
+.popup-dialog-box > .container > .button-group > .yes-button:active {
+  background-color: #ff1313;
+}
