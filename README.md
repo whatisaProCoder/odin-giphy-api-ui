@@ -36,21 +36,6 @@ This project was built to learn asynchronous JavaScript concepts from The Odin P
 - Webpack for bundling
 - GIPHY API
 
-## Key Concepts
-
-```javascript
-// Example of fetch API with promises
-fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${API_KEY}&s=${text}`)
-  .then((response) => response.json())
-  .then((data) => {
-    // Display the GIF
-    imagebox.src = data.data.images.original.url;
-  })
-  .catch((error) => {
-    alert(error);
-  });
-```
-
 ## Setup
 
 1. Clone the repository
