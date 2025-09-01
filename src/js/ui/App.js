@@ -83,18 +83,16 @@ function handleUserActions() {
         spinner.style.display = "block";
         imagebox.src = blankImage;
 
-        api.translateAPI(text).then(url => {
-          imagebox.src = url;
-          spinner.style.display = "none";
-        }).catch(error => alert(error));
-
         searchButton.classList.add("bg-blue-700");
         searchButton.classList.add("scale-110");
 
-        setTimeout(() => {
+        api.translateAPI(text).then(url => {
+          imagebox.src = url;
+          spinner.style.display = "none";
+
           searchButton.classList.remove("bg-blue-700");
           searchButton.classList.remove("scale-110");
-        }, 250);
+        }).catch(error => alert(error));
       }
     }
   });
