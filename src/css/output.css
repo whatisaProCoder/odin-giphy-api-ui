@@ -279,8 +279,17 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .border-\[\#1a1a1a\] {
+    border-color: #1a1a1a;
+  }
   .border-\[\#1b1b1b\] {
     border-color: #1b1b1b;
+  }
+  .border-\[\#171717\] {
+    border-color: #171717;
+  }
+  .border-\[\#222222\] {
+    border-color: #222222;
   }
   .border-\[\#282828\] {
     border-color: #282828;
@@ -379,22 +388,6 @@
       --tw-scale-x: 110%;
       --tw-scale-y: 110%;
       --tw-scale-z: 110%;
-      scale: var(--tw-scale-x) var(--tw-scale-y);
-    }
-  }
-  .active\:scale-115 {
-    &:active {
-      --tw-scale-x: 115%;
-      --tw-scale-y: 115%;
-      --tw-scale-z: 115%;
-      scale: var(--tw-scale-x) var(--tw-scale-y);
-    }
-  }
-  .active\:scale-120 {
-    &:active {
-      --tw-scale-x: 120%;
-      --tw-scale-y: 120%;
-      --tw-scale-z: 120%;
       scale: var(--tw-scale-x) var(--tw-scale-y);
     }
   }
