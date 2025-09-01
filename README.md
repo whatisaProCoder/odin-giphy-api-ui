@@ -12,6 +12,11 @@ A simple application that lets you search for GIFs using the GIPHY API.
 
 This project was built to learn asynchronous JavaScript concepts from The Odin Project's curriculum. It demonstrates how to fetch data from an external API and update the UI dynamically.
 
+The code follows a clean architecture approach with separation of concerns:
+
+- **API Layer**: Pure functions that return Promises (GIPHY.js)
+- **UI Layer**: Handles user interactions and updates the display (App.js)
+
 ## Features
 
 - Search for GIFs using keywords
@@ -22,12 +27,47 @@ This project was built to learn asynchronous JavaScript concepts from The Odin P
 
 - **src/index.js**: Main entry point that initializes the application
 - **src/js/core/GIPHY.js**: Handles API interactions with GIPHY
-  - `translateAPI()`: Searches for GIFs based on keywords
-  - `randomAPI()`: Fetches random GIFs
+  - `translateAPI()`: Returns a Promise that resolves with a GIF URL based on search keywords
+  - `randomAPI()`: Returns a Promise that resolves with a random GIF URL
 - **src/js/ui/App.js**: Manages the UI and event handling
   - Creates the application interface
   - Sets up event listeners for search and random buttons
+  - Handles the UI updates based on Promise resolutions
 - **src/template.html**: Basic HTML structure with a content container
+
+## Key Concepts
+
+```javascript
+// Example of Promise-based API module
+function translateAPI(text) {
+  return new Promise((resolve, reject) => {
+    fetch(
+      `https://api.giphy.com/v1/gifs/translate?api_key=${API_KEY}&s=${text}`,
+    )
+      .then((response) => {
+        if (response.ok) return response.json();
+      })
+      .then((data) => {
+        resolve(data.data.images.original.url);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
+
+// Example of consuming the Promise in UI code
+api
+  .translateAPI(searchText)
+  .then((url) => {
+    // Update the UI with the returned GIF URL
+    imagebox.src = url;
+    spinner.style.display = "none";
+  })
+  .catch((error) => {
+    alert("Error fetching GIF!");
+  });
+```
 
 ## Tech Stack
 
