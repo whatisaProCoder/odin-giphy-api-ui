@@ -24,7 +24,7 @@ export default function App() {
           <div class="text-[#FFF0FF] flex flex-row justify-center items-center font-semibold ml-5 text-[1.125rem] max-sm:text-[1rem]">GIPHY</div>
           <div class="flex flex-row flex-1 rounded-full border-1 border-[#282828] bg-[#1E1E1E] m-1 outline-none ml-5 w-full text-[#D7D7D7] pl-5 text-[1.125rem]">
             <input id="searchbox" type="text" placeholder="Search" class="h-full outline-none w-full max-sm:text-[1rem]"/>
-            <div id="search-button" class="rounded-full bg-[#282828] w-12 flex flex-row items-center justify-center p-3 transition-colors hover:bg-[#3c3c3c] active:bg-[#333333] select-none max-sm:hover:bg-[#282828]">
+            <div id="search-button" class="rounded-full bg-[#282828] w-12 flex flex-row items-center justify-center p-3 transition-all hover:bg-[#3c3c3c] active:bg-[#333333] active:scale-110 select-none max-sm:hover:bg-[#282828]">
                <img src="${searchIcon}">
             </div>
           </div>
@@ -49,32 +49,50 @@ function handleUserActions() {
   const searchbox = document.querySelector("#searchbox");
   const searchButton = document.querySelector("#search-button");
   const randomButton = document.querySelector("#random-button");
+  const imagebox = document.querySelector("#imagebox");
+  const spinner = document.querySelector(".spinner");
 
-  const api = GIPHY("#imagebox", ".spinner");
+  const api = GIPHY();
 
   searchButton.addEventListener("click", () => {
     const text = searchbox.value;
+    spinner.style.display = "block";
+    imagebox.src = blankImage;
     if (text != "")
-      api.translateAPI(text);
+      api.translateAPI(text).then(url => {
+        imagebox.src = url;
+        spinner.style.display = "none";
+      }).catch(error => alert(error));
   });
 
   randomButton.addEventListener("click", () => {
-    api.randomAPI();
+    spinner.style.display = "block";
+    imagebox.src = blankImage;
+    api.randomAPI().then(url => {
+      imagebox.src = url;
+      spinner.style.display = "none";
+    }).catch(error => alert(error));;
   });
 
 
   document.addEventListener("keydown", (e) => {
     if (e.key === 'Enter') {
       const text = searchbox.value;
-
+      spinner.style.display = "block";
+      imagebox.src = blankImage;
       if (text != "")
-        api.translateAPI(text);
+        api.translateAPI(text).then(url => {
+          imagebox.src = url;
+          spinner.style.display = "none";
+        }).catch(error => alert(error));
 
       searchButton.classList.add("bg-blue-700");
+      searchButton.classList.add("scale-110");
 
       setTimeout(() => {
         searchButton.classList.remove("bg-blue-700");
-      }, 500);
+        searchButton.classList.remove("scale-110");
+      }, 250);
     }
   });
 }
