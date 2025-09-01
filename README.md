@@ -47,8 +47,8 @@ function translateAPI(text) {
       .then((response) => {
         if (response.ok) return response.json();
       })
-      .then((data) => {
-        resolve(data.data.images.original.url);
+      .then((response) => {
+        resolve(response.data.images.original.url);
       })
       .catch((error) => {
         reject(error);
