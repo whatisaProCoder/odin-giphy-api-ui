@@ -56,13 +56,14 @@ function handleUserActions() {
 
   searchButton.addEventListener("click", () => {
     const text = searchbox.value;
-    spinner.style.display = "block";
-    imagebox.src = blankImage;
-    if (text != "")
+    if (text != "") {
+      spinner.style.display = "block";
+      imagebox.src = blankImage;
       api.translateAPI(text).then(url => {
         imagebox.src = url;
         spinner.style.display = "none";
       }).catch(error => alert(error));
+    }
   });
 
   randomButton.addEventListener("click", () => {
@@ -78,21 +79,23 @@ function handleUserActions() {
   document.addEventListener("keydown", (e) => {
     if (e.key === 'Enter') {
       const text = searchbox.value;
-      spinner.style.display = "block";
-      imagebox.src = blankImage;
-      if (text != "")
+      if (text != "") {
+        spinner.style.display = "block";
+        imagebox.src = blankImage;
+
         api.translateAPI(text).then(url => {
           imagebox.src = url;
           spinner.style.display = "none";
         }).catch(error => alert(error));
 
-      searchButton.classList.add("bg-blue-700");
-      searchButton.classList.add("scale-110");
+        searchButton.classList.add("bg-blue-700");
+        searchButton.classList.add("scale-110");
 
-      setTimeout(() => {
-        searchButton.classList.remove("bg-blue-700");
-        searchButton.classList.remove("scale-110");
-      }, 250);
+        setTimeout(() => {
+          searchButton.classList.remove("bg-blue-700");
+          searchButton.classList.remove("scale-110");
+        }, 250);
+      }
     }
   });
 }
