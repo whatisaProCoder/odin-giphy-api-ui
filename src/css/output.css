@@ -279,14 +279,8 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-\[\#1a1a1a\] {
-    border-color: #1a1a1a;
-  }
   .border-\[\#1b1b1b\] {
     border-color: #1b1b1b;
-  }
-  .border-\[\#171717\] {
-    border-color: #171717;
   }
   .border-\[\#222222\] {
     border-color: #222222;
@@ -296,9 +290,6 @@
   }
   .bg-\[\#0F0F0F\] {
     background-color: #0F0F0F;
-  }
-  .bg-\[\#1D1D21\] {
-    background-color: #1D1D21;
   }
   .bg-\[\#1E1E1E\] {
     background-color: #1E1E1E;
@@ -394,6 +385,11 @@
   .active\:bg-\[\#333333\] {
     &:active {
       background-color: #333333;
+    }
+  }
+  .active\:bg-blue-600 {
+    &:active {
+      background-color: var(--color-blue-600);
     }
   }
   .active\:bg-blue-700 {
