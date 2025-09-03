@@ -387,11 +387,6 @@
       background-color: #333333;
     }
   }
-  .active\:bg-blue-600 {
-    &:active {
-      background-color: var(--color-blue-600);
-    }
-  }
   .active\:bg-blue-700 {
     &:active {
       background-color: var(--color-blue-700);
