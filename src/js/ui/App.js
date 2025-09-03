@@ -35,7 +35,7 @@ export default function App() {
       </div>
       <div class="w-full bg-[#141414] flex-1 rounded-2xl mt-3 border-1 border-[#282828] p-1 relative">
         <div class="spinner"></div>
-        <img id="imagebox" class="w-full rounded-xl object-cover border-1 border-[#1b1b1b]" src="${blankImage}">
+        <img id="imagebox" class="w-full rounded-xl object-cover border-1 border-[#1b1b1b] max-h-[600px]" src="${blankImage}">
       </div>
       </div>
   `;

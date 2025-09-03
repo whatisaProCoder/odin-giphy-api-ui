@@ -220,6 +220,12 @@
   .h-full {
     height: 100%;
   }
+  .max-h-\[600px\] {
+    max-height: 600px;
+  }
+  .max-h-\[768px\] {
+    max-height: 768px;
+  }
   .w-12 {
     width: calc(var(--spacing) * 12);
   }
